@@ -17,16 +17,28 @@ public class ErsUserDaoTests extends TestCase {
 	public void testSaveUser() {
 		ErsUserDao dao = new ErsUserDao();
 		
-		ErsUser user = new ErsUser();
-		user.setId(12345);
-		user.setUsername("josephdg3");
-		user.setPassword("pass");
-		user.setFirstName("Joe");
-		user.setLastName("Gonz");
-		user.setEmail("josep@test.com");
-		user.setUserRole(new UserRole(123456, "employee"));
+		ErsUser u1 = new ErsUser();
+		u1.setId(12345);
+		u1.setUsername("josephdg3");
+		u1.setPassword("pass");
+		u1.setFirstName("Joe");
+		u1.setLastName("Gonz");
+		u1.setEmail("josep@test.com");
+		u1.setUserRole(new UserRole(123456, "employee"));
 		
-		int actual = dao.saveUser(user);
+		int actual = dao.saveUser(u1);
+		assertEquals(1, actual);
+		
+		ErsUser u2 = new ErsUser();
+		u2.setId(67891);
+		u2.setUsername("john01");
+		u2.setPassword("pass");
+		u2.setFirstName("John");
+		u2.setLastName("Gabe");
+		u2.setEmail("john01@test.com");
+		u2.setUserRole(new UserRole(785632, "manager"));
+		
+		actual = dao.saveUser(u2); 
 		assertEquals(1, actual);
 	}
 
@@ -35,45 +47,45 @@ public class ErsUserDaoTests extends TestCase {
 		List<ErsUser> users = new ArrayList<>();
 		ErsUserDao dao = new ErsUserDao();
 
-		ErsUser user = new ErsUser();
-		user.setId(12345);
-		user.setUsername("josephdg3");
-		user.setPassword("pass");
-		user.setFirstName("Joe");
-		user.setLastName("Gonz");
-		user.setEmail("josep@test.com");
-		user.setUserRole(new UserRole(123456, "employee"));
-		users.add(user);
+		ErsUser u1 = new ErsUser();
+		u1.setId(12345);
+		u1.setUsername("josephdg3");
+		u1.setPassword("pass");
+		u1.setFirstName("Joe");
+		u1.setLastName("Gonz");
+		u1.setEmail("josep@test.com");
+		u1.setUserRole(new UserRole(123456, "employee"));
 
-		user.setId(67891);
-		user.setUsername("john01");
-		user.setPassword("pass");
-		user.setFirstName("John");
-		user.setLastName("Gabe");
-		user.setEmail("john01@test.com");
-		user.setUserRole(new UserRole(785632, "manager"));
-		dao.saveUser(user);
-		users.add(user);
+		users.add(u1);
 
-		boolean actual = users.equals(dao.getAllUsers());
-		assertEquals(true, actual);
+		ErsUser u2 = new ErsUser();
+		u2.setId(67891);
+		u2.setUsername("john01");
+		u2.setPassword("pass");
+		u2.setFirstName("John");
+		u2.setLastName("Gabe");
+		u2.setEmail("john01@test.com");
+		u2.setUserRole(new UserRole(785632, "manager"));		
+		
+		users.add(u2);
+
+		assertEquals(users, dao.getAllUsers());
 	}
 
 	@Test
 	public void testGetErsUserByUsername() {
 		ErsUserDao dao = new ErsUserDao();
 		
-		ErsUser user = new ErsUser();
-		user.setId(12345);
-		user.setUsername("josephdg3");
-		user.setPassword("pass");
-		user.setFirstName("Joe");
-		user.setLastName("Gonz");
-		user.setEmail("josep@test.com");
-		user.setUserRole(new UserRole(123456, "employee"));
+		ErsUser u1 = new ErsUser();
+		u1.setId(12345);
+		u1.setUsername("josephdg3");
+		u1.setPassword("pass");
+		u1.setFirstName("Joe");
+		u1.setLastName("Gonz");
+		u1.setEmail("josep@test.com");
+		u1.setUserRole(new UserRole(123456, "employee"));
 		
-		boolean actual = user.equals(dao.getErsUserByUsername("josephdg3"));
-		assertEquals(true, actual);
+		assertEquals(u1, dao.getErsUserByUsername("josephdg3"));
 	}
 
 	@Test
@@ -81,18 +93,18 @@ public class ErsUserDaoTests extends TestCase {
 		List<ErsUser> users = new ArrayList<>();
 		ErsUserDao dao = new ErsUserDao();
 		
-		ErsUser user = new ErsUser();
-		user.setId(12345);
-		user.setUsername("josephdg3");
-		user.setPassword("pass");
-		user.setFirstName("Joe");
-		user.setLastName("Gonz");
-		user.setEmail("josep@test.com");
-		user.setUserRole(new UserRole(123456, "employee"));
-		users.add(user);
+		ErsUser u1 = new ErsUser();
+		u1.setId(12345);
+		u1.setUsername("josephdg3");
+		u1.setPassword("pass");
+		u1.setFirstName("Joe");
+		u1.setLastName("Gonz");
+		u1.setEmail("josep@test.com");
+		u1.setUserRole(new UserRole(123456, "employee"));
 		
-		boolean actual = users.equals(dao.getErsUserByRole("employee"));
-		assertEquals(true, actual);
+		users.add(u1);
+		
+		assertEquals(users, dao.getErsUserByRole("employee"));
 	}
 
 }

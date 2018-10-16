@@ -4,6 +4,12 @@ import java.awt.Image;
 import java.util.Scanner;
 
 public class ErsUser implements User {
+	@Override
+	public boolean equals(Object obj) {
+		return (this.id == ((ErsUser) obj).id && 
+				this.username.contentEquals(((ErsUser) obj).username));
+	}
+
 	private int id;
 	private String username;
 	private String password;
