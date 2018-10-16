@@ -24,7 +24,7 @@ public class ErsUserDaoTests extends TestCase {
 		user.setFirstName("Joe");
 		user.setLastName("Gonz");
 		user.setEmail("josep@test.com");
-		user.setRole(new UserRole(123456, "employee"));
+		user.setUserRole(new UserRole(123456, "employee"));
 		
 		int actual = dao.saveUser(user);
 		assertEquals(1, actual);
@@ -42,7 +42,7 @@ public class ErsUserDaoTests extends TestCase {
 		user.setFirstName("Joe");
 		user.setLastName("Gonz");
 		user.setEmail("josep@test.com");
-		user.setRole(new UserRole(123456, "employee"));
+		user.setUserRole(new UserRole(123456, "employee"));
 		users.add(user);
 
 		user.setId(67891);
@@ -51,7 +51,7 @@ public class ErsUserDaoTests extends TestCase {
 		user.setFirstName("John");
 		user.setLastName("Gabe");
 		user.setEmail("john01@test.com");
-		user.setRole(new UserRole(785632, "manager"));
+		user.setUserRole(new UserRole(785632, "manager"));
 		dao.saveUser(user);
 		users.add(user);
 
@@ -70,7 +70,7 @@ public class ErsUserDaoTests extends TestCase {
 		user.setFirstName("Joe");
 		user.setLastName("Gonz");
 		user.setEmail("josep@test.com");
-		user.setRole(new UserRole(123456, "employee"));
+		user.setUserRole(new UserRole(123456, "employee"));
 		
 		boolean actual = user.equals(dao.getErsUserByUsername("josephdg3"));
 		assertEquals(true, actual);
@@ -88,7 +88,7 @@ public class ErsUserDaoTests extends TestCase {
 		user.setFirstName("Joe");
 		user.setLastName("Gonz");
 		user.setEmail("josep@test.com");
-		user.setRole(new UserRole(123456, "employee"));
+		user.setUserRole(new UserRole(123456, "employee"));
 		users.add(user);
 		
 		boolean actual = users.equals(dao.getErsUserByRole("employee"));

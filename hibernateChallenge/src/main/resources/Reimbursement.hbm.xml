@@ -11,9 +11,9 @@
 		<property name="recipt" column="r_receipt"/>
 		<property name="submitted_ts" column="r_submitted"/>
 		<property name="resolved_ts" column="r_resolved"/>
-		<many-to-one name="id_author" class="com.revature.ErsUser" column="u_id" cascade="save-update"/>
-		<many-to-one name="id_resolver" class="com.revature.ErsUser" column="u_id" cascade="save-update"/>
-		<many-to-one name="type" class="com.revature.ReimbursementType" column="rt_id"/>
-		<many-to-one name="status" class="com.revature.ReimbursementStatus" column="rs_id"/>
+		<many-to-one name="author" class="com.revature.model.ErsUser" column="u_id" cascade="save-update"/>
+		<many-to-one name="resolver" class="com.revature.model.ErsUser" column="ur_id" cascade="save-update"/>
+		<many-to-one name="reimbursementType" class="com.revature.model.ReimbursementType" column="rt_id"/>
+		<many-to-one name="reimbursementStatus" class="com.revature.model.ReimbursementStatus" column="rs_id"/>
 	</class>
 </hibernate-mapping>

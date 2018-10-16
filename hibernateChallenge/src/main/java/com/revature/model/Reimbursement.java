@@ -7,13 +7,14 @@ public class Reimbursement {
 	private byte[] recipt;
 	private String submitted_ts;
 	private String resolved_ts;
-	private ErsUser id_author;
-	private ErsUser id_resolver;
-	private ReimbursementType type;
-	private ReimbursementStatus status;
+	private ErsUser author;
+	private ErsUser resolver;
+	private ReimbursementType reimbursementType;
+	private ReimbursementStatus reimbursementStatus;
 
 	public Reimbursement(int id, int amount, String description, byte[] recipt, String submitted_ts, String resolved_ts,
-			ErsUser id_author, ErsUser id_resolver, ReimbursementType type, ReimbursementStatus status) {
+			ErsUser author, ErsUser resolver, ReimbursementType reimbursementType,
+			ReimbursementStatus reimbursementStatus) {
 		super();
 		this.id = id;
 		this.amount = amount;
@@ -21,10 +22,10 @@ public class Reimbursement {
 		this.recipt = recipt;
 		this.submitted_ts = submitted_ts;
 		this.resolved_ts = resolved_ts;
-		this.id_author = id_author;
-		this.id_resolver = id_resolver;
-		this.type = type;
-		this.status = status;
+		this.author = author;
+		this.resolver = resolver;
+		this.reimbursementType = reimbursementType;
+		this.reimbursementStatus = reimbursementStatus;
 	}
 
 	public Reimbursement() {
@@ -87,36 +88,36 @@ public class Reimbursement {
 		this.recipt = recipt;
 	}
 
-	public ErsUser getId_author() {
-		return id_author;
+	public ErsUser getAuthor() {
+		return author;
 	}
 
-	public void setId_author(ErsUser id_author) {
-		this.id_author = id_author;
+	public void setAuthor(ErsUser author) {
+		this.author = author;
 	}
 
-	public ErsUser getId_resolver() {
-		return id_resolver;
+	public ErsUser getResolver() {
+		return resolver;
 	}
 
-	public void setId_resolver(ErsUser id_resolver) {
-		this.id_resolver = id_resolver;
+	public void setResolver(ErsUser resolver) {
+		this.resolver = resolver;
 	}
 
-	public ReimbursementType getType() {
-		return type;
+	public ReimbursementType getReimbursementType() {
+		return reimbursementType;
 	}
 
-	public void setType(ReimbursementType type) {
-		this.type = type;
+	public void setReimbursementType(ReimbursementType reimbursementType) {
+		this.reimbursementType = reimbursementType;
 	}
 
-	public ReimbursementStatus getStatus() {
-		return status;
+	public ReimbursementStatus getReimbursementStatus() {
+		return reimbursementStatus;
 	}
 
-	public void setStatus(ReimbursementStatus status) {
-		this.status = status;
+	public void setReimbursementStatus(ReimbursementStatus reimbursementStatus) {
+		this.reimbursementStatus = reimbursementStatus;
 	}
 
 }

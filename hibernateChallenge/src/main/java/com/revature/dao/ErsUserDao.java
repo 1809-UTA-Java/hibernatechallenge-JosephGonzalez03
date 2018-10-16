@@ -31,7 +31,7 @@ public class ErsUserDao {
 	@SuppressWarnings("unchecked")
 	public List<ErsUser> getErsUserByRole(String role) {
 		Session session = HibernateUtil.getSession();
-		return session.createQuery("select ErsUser from ErsUser eu join eu.role where role = :role")
+		return session.createQuery("select eu from ErsUser eu join eu.userRole ur where ur.role = :role")
 				.setString("role", role).list();
 	}
 	

@@ -10,10 +10,10 @@ public class ErsUser implements User {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private UserRole role;
+	private UserRole userRole;
 
 	public ErsUser(int id, String username, String password, String firstName, String lastName,
-			String email, UserRole role) {
+			String email, UserRole userRole) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -21,7 +21,7 @@ public class ErsUser implements User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.role = role;
+		this.userRole = userRole;
 	}
 
 	public ErsUser() {
@@ -77,12 +77,12 @@ public class ErsUser implements User {
 		this.email = email;
 	}
 
-	public UserRole getRole() {
-		return role;
+	public UserRole getUserRole() {
+		return userRole;
 	}
 
-	public void setRole(UserRole role) {
-		this.role = role;
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
 	}
 
 	public User login(User user) {

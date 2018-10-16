@@ -11,6 +11,6 @@
 		<property name="firstName" column="u_firstname"/>
 		<property name="lastName" column="u_lastname"/>
 		<property name="email" column="u_email"/>
-		<many-to-one name="role" class="com.revature.UserRole" column="ur_id" cascade="save-update"/>
+		<many-to-one name="userRole" class="com.revature.model.UserRole" column="ur_id" cascade="save-update"/>
 	</class>
 </hibernate-mapping>
